@@ -23,11 +23,9 @@ public class Account {
     private String accountNumber;
 
     private double balance;
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    private double accountRelatedValue;
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -51,6 +49,7 @@ public class Account {
         INACTIVE,
         SUSPENDED
     }
+
 
     @Override
     public boolean equals(Object o) {

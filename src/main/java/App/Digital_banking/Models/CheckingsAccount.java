@@ -13,6 +13,6 @@ import lombok.ToString;
 @DiscriminatorValue("CHECKINGS")
 @Getter @Setter @ToString
 @NoArgsConstructor
-public class CheckingsAccount {
+public class CheckingsAccount extends Account {
     private Double overdraftLimit;
 }
