@@ -48,6 +48,11 @@ public class Account {
         SUSPENDED
     }
 
+    public enum account_type{
+        SAVINGS,
+        CHECKINGS
+    }
+
 
     @Override
     public boolean equals(Object o) {

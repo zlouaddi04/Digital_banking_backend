@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -31,16 +32,16 @@ public class Transactions {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Destination_account_id", referencedColumnName = "Account_id")
-    private String Destination_account;
+    private Account Destination_account;
 
 
 
-    protected enum Transaction_Type {
+    public enum Transaction_Type {
         DEPOSIT,
         WITHDRAWAL,
         TRANSFER
     }
-    protected enum transaction_status {
+    public enum transaction_status {
         PENDING,
         COMPLETED,
         FAILED
