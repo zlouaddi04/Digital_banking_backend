@@ -29,10 +29,7 @@ public class Transactions {
     @JoinColumn(name = "Account_id", referencedColumnName = "Account_id", nullable = false)
     private Account account;
 
-    @ManyToOne(
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.PERSIST
-    )
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Destination_account_id", referencedColumnName = "Account_id")
     private String Destination_account;
 

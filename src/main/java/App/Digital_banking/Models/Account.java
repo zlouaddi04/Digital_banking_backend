@@ -32,9 +32,7 @@ public class Account {
     private account_status status;
 
 
-    @ManyToOne(
-            fetch = FetchType.LAZY
-    )
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Client_id", referencedColumnName = "Client_id",nullable = false)
     private Client owner;
 

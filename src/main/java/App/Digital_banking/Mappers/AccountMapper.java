@@ -2,6 +2,7 @@ package App.Digital_banking.Mappers;
 
 import App.Digital_banking.DTO.AccountRequest;
 import App.Digital_banking.DTO.CheckAccountResponse;
+import App.Digital_banking.DTO.SavAccountResponse;
 import App.Digital_banking.Models.CheckingsAccount;
 import App.Digital_banking.Models.SavingsAccount;
 
@@ -27,6 +28,17 @@ public class AccountMapper {
                 checkingsAccount.getCreatedAt(),
                 checkingsAccount.getStatus().toString(),
                 checkingsAccount.getOverdraftLimit()
+        );
+    }
+
+
+    public SavAccountResponse toSavAccountResponse (SavingsAccount savingsAccount){
+        return new SavAccountResponse(
+                savingsAccount.getAccountNumber(),
+                savingsAccount.getBalance(),
+                savingsAccount.getCreatedAt(),
+                savingsAccount.getStatus().toString(),
+                savingsAccount.getInterestRate()
         );
     }
 }
