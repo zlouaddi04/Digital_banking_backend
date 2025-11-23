@@ -8,18 +8,22 @@ import org.hibernate.annotations.Fetch;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "clients")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Client_id;
 
     private String username;
-    @Column(unique = true, nullable = false)
+
+    @Column(name = "CIN",unique = true, nullable = false)
     private String CIN;
+
     private String email;
 
     private String Password;
@@ -33,7 +37,15 @@ public class Client {
     )
     private List<Account> accounts=new ArrayList<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(CIN, client.CIN);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(CIN);
+    }
 }

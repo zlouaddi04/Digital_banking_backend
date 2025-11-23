@@ -1,6 +1,6 @@
 package App.Digital_banking.Exceptions;
 
-import App.Digital_banking.Exceptions.ClientExceptions.ClientNotFoundException;
+import App.Digital_banking.Exceptions.ClientExceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,6 +19,15 @@ public class GlobalExceptionsHandler {
         Error.setMessage(ex.getMessage());
         Error.setErrorcode("CLIENT_NOT_FOUND");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Error);
+    }
+
+    @ExceptionHandler(ClientAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleClientAlreadyExistsException(ClientAlreadyExistsException ex){
+        ErrorResponse Error=new ErrorResponse();
+        Error.setHttpStatus(HttpStatus.CONFLICT.value());
+        Error.setErrorcode("CLIENT_ALREADY_EXISTS");
+        Error.setMessage(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Error);
     }
 
 
