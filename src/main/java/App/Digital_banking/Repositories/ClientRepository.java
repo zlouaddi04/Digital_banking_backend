@@ -12,5 +12,7 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client,Long> {
 
     //@Query(value = "select * from clients where cin = ?1 ",nativeQuery = true)
-    Optional<Client> findByCIN( String cin);
+    Optional<Client> findByCIN(String cin);
+
+    boolean existsByCIN(String cin);
 }
